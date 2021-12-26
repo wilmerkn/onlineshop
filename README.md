@@ -1,4 +1,4 @@
-# onlineshop
+# Online Shop
 Project in Databasteknik
 
 ## Setup
