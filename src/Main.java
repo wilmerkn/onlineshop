@@ -21,7 +21,5 @@ public class Main {
         while (rs.next()) {
             System.out.println(rs.getString(2));
         }
-
-        String str = "test";
     }
 }
