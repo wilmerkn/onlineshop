@@ -46,6 +46,7 @@ public class RegisterForm extends JFrame implements ActionListener {
 
             if (true) {
                 //OM account är unik med usernamne och email.
+                hideWindow();
 
             } else  {
                 //EJ unikt visa felmeddelande.
