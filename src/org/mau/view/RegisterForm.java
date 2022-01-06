@@ -1,23 +1,55 @@
 package org.mau.view;
 
+import org.mau.controller.Controller;
+
 import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-    class RegisterFrame extends JFrame {
-    private JTextField textField1;
-    private JTextField textField2;
-    private JTextField textField3;
-    private JTextField textField4;
-    private JTextField textField5;
+public class RegisterForm extends JFrame implements ActionListener {
+    private JTextField userField;
+    private JTextField passwordField;
+    private JTextField emailField;
+    private JTextField firstNameField;
+    private JTextField lastNameField;
     private JPanel mainPanel;
-    private JTextField textField6;
+    private JTextField addressField;
     private JButton createAccountButton;
+    private Controller controller;
 
-    public RegisterFrame() {
+    public RegisterForm(Controller controller) {
         super("Create Account");
+        this.setPreferredSize(new Dimension(250,250));
+        this.setResizable(false);
+        this.controller = controller;
         this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.setLocationRelativeTo(null);
+        this.createAccountButton.addActionListener(this);
         this.pack();
+    }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == createAccountButton) {
+
+
+            String username = userField.getText();
+            String password = passwordField.getText();
+            String email = emailField.getText();
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String address = addressField.getText();
+
+            boolean isRegistered = controller.register(username,password,email,firstName,lastName,address);
+
+            if (true) {
+                //OM account är unik med usernamne och email.
+                setVisible(false);
+            } else  {
+                //EJ unikt visa felmeddelande.
+            }
+        }
     }
 }
