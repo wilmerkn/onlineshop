@@ -39,6 +39,8 @@ public class MainFrame extends JFrame implements ActionListener{
         this.setVisible(true);
         this.loginForm = new LoginForm(controller);
         init();
+        setSize(500,500);
+        this.setLocationRelativeTo(null);
 
 
 

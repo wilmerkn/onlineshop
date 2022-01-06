@@ -2,7 +2,7 @@ package org.mau.view;
 
 import javax.swing.*;
 
-public class RegisterFrame extends JFrame {
+    class RegisterFrame extends JFrame {
     private JTextField textField1;
     private JTextField textField2;
     private JTextField textField3;

@@ -1,4 +1,6 @@
 package org.mau.model;
+import org.mau.view.LoginForm;
+
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Properties;
@@ -53,6 +55,7 @@ public class DatabaseConnection {
     }
 
     public void login(String username, String password) {
+
         String query = String.format("SELECT * FROM login\n" +
                 "WHERE username = '" + username + "' and password = '" + password + "'");
 
@@ -61,9 +64,12 @@ public class DatabaseConnection {
             Statement st = conn.createStatement();
             ResultSet rs = st.executeQuery(query);
             while (rs.next()) {
+                System.out.println("DBC Login!");
+                login = new Login(username);// ,login.getEmail(), login.isAdmin());
+                System.out.println(login);
 
-                System.out.println("Logged In!");
             }
+            System.out.println("Login unsuccessful, please try again");
         } catch (SQLException e) {
             System.out.printf("ERROR");
         }

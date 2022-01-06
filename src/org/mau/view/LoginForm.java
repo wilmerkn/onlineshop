@@ -20,6 +20,10 @@ public class LoginForm extends JFrame implements ActionListener {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         loginButton.addActionListener(this);
+        setSize(500,500);
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+
 
     }
 
@@ -28,14 +32,18 @@ public class LoginForm extends JFrame implements ActionListener {
         if (e.getSource() == loginButton) {
 
             String username = userField.getText();
-            String password = userField.getText();
+            String password = String.valueOf(passwordField.getPassword());
+            System.out.println("loginform login");
             controller.login(username,password);
+            hideWindow();
+
 
         }
 
     }
 
     public void displayWindow() {
-        setVisible(true);
+        this.setVisible(true);
     }
+    public void hideWindow(){this.setVisible(false);}
 }

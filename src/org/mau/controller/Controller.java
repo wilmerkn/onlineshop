@@ -5,15 +5,16 @@ import java.util.ArrayList;
 
 public class Controller {
     MainFrame frame;
+    DatabaseConnection c;
 
     public Controller() {
         this.frame = new MainFrame(this);
         frame.setVisible(true);
-        DatabaseConnection c = new DatabaseConnection();
+        c = new DatabaseConnection();
         c.query();
         //c.displayProd();
         //frame.viewProduct(c.getProductList());
-        c.login("hugolind","qwertys");
+
 
     }
 
@@ -21,6 +22,10 @@ public class Controller {
     public void login(String username, String password) {
         System.out.println(username);
         System.out.println(password);
+        c.login(username,password);
+        System.out.println("Controller login");
+
+
 
         //IF OK CALL LOGIN
         //frame.login();
