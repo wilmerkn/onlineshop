@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 public class MainFrame extends JFrame implements ActionListener{
     private Controller controller;
-    private RegisterFrame register;
+    private RegisterForm register;
     private JButton loginButton;
     private JPanel mainPanel;
     private JTable table1;
@@ -27,6 +27,7 @@ public class MainFrame extends JFrame implements ActionListener{
     private JButton discountsButton;
     private JPanel manageLabel;
     private LoginForm loginForm;
+    private RegisterForm registerForm;
 
     DefaultListModel<Product> model;
 
@@ -38,6 +39,7 @@ public class MainFrame extends JFrame implements ActionListener{
         this.setContentPane(mainPanel);
         this.setVisible(true);
         this.loginForm = new LoginForm(controller);
+        this.registerForm = new RegisterForm(controller);
         init();
         setSize(500,500);
         this.setLocationRelativeTo(null);
@@ -102,7 +104,8 @@ public class MainFrame extends JFrame implements ActionListener{
         }
 
         if (e.getSource() == this.registerButton) {
-            controller.register();
+            registerForm.displayWindow();
+            //controller.register();
         }
 
         if (e.getSource() == viewCartButton) {

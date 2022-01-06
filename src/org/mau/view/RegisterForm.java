@@ -42,14 +42,18 @@ public class RegisterForm extends JFrame implements ActionListener {
             String lastName = lastNameField.getText();
             String address = addressField.getText();
 
-            boolean isRegistered = controller.register(username,password,email,firstName,lastName,address);
+            //boolean isRegistered = controller.register(username,password,email,firstName,lastName,address);
 
             if (true) {
                 //OM account är unik med usernamne och email.
-                setVisible(false);
+
             } else  {
                 //EJ unikt visa felmeddelande.
             }
         }
     }
+    public void displayWindow() {
+        this.setVisible(true);
+    }
+    public void hideWindow(){this.setVisible(false);}
 }
