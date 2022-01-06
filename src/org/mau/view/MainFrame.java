@@ -1,7 +1,6 @@
 package org.mau.view;
 import org.mau.controller.Controller;
 import org.mau.model.Product;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,6 +26,8 @@ public class MainFrame extends JFrame implements ActionListener{
     private JButton ordersButton;
     private JButton discountsButton;
     private JPanel manageLabel;
+    private LoginForm loginForm;
+
     DefaultListModel<Product> model;
 
     public MainFrame(Controller controller) {
@@ -36,6 +37,7 @@ public class MainFrame extends JFrame implements ActionListener{
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
         this.setVisible(true);
+        this.loginForm = new LoginForm(controller);
         init();
 
 
@@ -92,8 +94,9 @@ public class MainFrame extends JFrame implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.loginButton) {
-            controller.login();
-            login();
+            loginForm.displayWindow();
+            //controller.login();
+            //login();
         }
 
         if (e.getSource() == this.registerButton) {

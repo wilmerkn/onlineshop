@@ -18,8 +18,12 @@ public class Controller {
     }
 
 
-    public void login() {
-        System.out.println("Login");
+    public void login(String username, String password) {
+        System.out.println(username);
+        System.out.println(password);
+
+        //IF OK CALL LOGIN
+        //frame.login();
 
     }
     public void register() {
