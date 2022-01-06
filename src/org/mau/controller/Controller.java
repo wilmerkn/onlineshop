@@ -7,12 +7,12 @@ public class Controller {
     MainFrame frame;
 
     public Controller() {
-        MainFrame frame = new MainFrame(this);
+        this.frame = new MainFrame(this);
         frame.setVisible(true);
         DatabaseConnection c = new DatabaseConnection();
         c.query();
         //c.displayProd();
-        frame.viewProduct(c.getProductList());
+        //frame.viewProduct(c.getProductList());
         c.login("hugolind","qwertys");
 
     }
@@ -20,7 +20,7 @@ public class Controller {
 
     public void login() {
         System.out.println("Login");
-        frame.init();
+
     }
     public void register() {
         System.out.println("register");

@@ -1,7 +1,8 @@
-import java.sql.*;
-import java.util.Properties;
 
-import org.mau.Controller;
+
+import java.sql.*;
+
+import org.mau.controller.Controller;
 
 
 public class Main {

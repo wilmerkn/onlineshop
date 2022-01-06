@@ -26,55 +26,77 @@ public class MainFrame extends JFrame implements ActionListener{
     private JButton removeButton;
     private JButton ordersButton;
     private JButton discountsButton;
+    private JPanel manageLabel;
     DefaultListModel<Product> model;
 
     public MainFrame(Controller controller) {
 
         super("Title");
         this.controller = controller;
-        this.model = new DefaultListModel<Product>();
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
-        this.setLocationRelativeTo(null);
-        this.register = new RegisterFrame();
-
-        this.loginButton = new JButton();
-        this.loginButton.addActionListener(this);
-        this.pack();
+        this.setVisible(true);
         init();
+
+
 
 
     }
 
     public void init() {;
+        this.viewCartButton.setVisible(false);
+        this.confirmOrderButton.setVisible(false);
+        this.manageLabel.setVisible(false);
+        this.addButton.setVisible(false);
+        this.removeButton.setVisible(false);
+        this.suppliersButton.setVisible(false);
+        this.productsButton.setVisible(false);
+        this.ordersButton.setVisible(false);
+        this.discountsButton.setVisible(false);
 
+        this.loginButton.addActionListener(this);
+        this.registerButton.addActionListener(this);
+        this.viewCartButton.addActionListener(this);
+        this.confirmOrderButton.addActionListener(this);
+        this.addButton.addActionListener(this);
+        this.removeButton.addActionListener(this);
+        this.productsButton.addActionListener(this);
+        this.suppliersButton.addActionListener(this);
+        this.discountsButton.addActionListener(this);
+        this.ordersButton.addActionListener(this);
+        this.sökButton.addActionListener(this);
+
+    }
+
+
+
+    public void login() {
+
+        manageLabel.setVisible(true);
+        confirmOrderButton.setVisible(true);
+        viewCartButton.setVisible(true);
+        addButton.setVisible(true);
+        removeButton.setVisible(true);
+        suppliersButton.setVisible(true);
+        productsButton.setVisible(true);
+        productsButton.setVisible(true);
+        ordersButton.setVisible(true);
+        discountsButton.setVisible(true);
 
 
     }
 
-    public void test() {
-        loginButton.setVisible(false);
-    }
 
 
-
-
-
-    public void viewProduct(ArrayList<Product> prod) {
-
-        for (Product p : prod) {
-            model.addElement(p);
-        }
-    }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == this.loginButton) {
-            System.out.println("TEST");
             controller.login();
+            login();
         }
 
-        if (e.getSource() == registerButton) {
+        if (e.getSource() == this.registerButton) {
             controller.register();
         }
 
